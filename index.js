@@ -69,12 +69,18 @@ module.exports.calculate = function calculate(calculation, userfriendly) {
         calculatecheck = this.replaceAll(calculatecheck, '+', '');
         // Check if The Calculation is valid
         if(!isNaN(calculatecheck)) {
-            // Replace PI and Values
+            // Replace PI and Values, Add Support for more Signs
             tocalculate = this.replaceAll(tocalculate, 'PI', 'pi');
             tocalculate = this.replaceAll(tocalculate, 'pi', 'Math.PI');
             tocalculate = this.replaceAll(tocalculate, 'Pi', 'Math.PI');
             tocalculate = this.replaceAll(tocalculate, 'pI', 'Math.PI');
             tocalculate = this.replaceAll(tocalculate, 'π', 'Math.PI');
+            tocalculate = this.replaceAll(tocalculate, ':', '/');
+            tocalculate = this.replaceAll(tocalculate, 'x', '*');
+            tocalculate = this.replaceAll(tocalculate, 'X', '*');
+            tocalculate = this.replaceAll(tocalculate, '×', '*');
+            tocalculate = this.replaceAll(tocalculate, '÷', '/');
+            tocalculate = this.replaceAll(tocalculate, '∞', 'Infinity');
             // Calculate Using eval
             calculateresult = eval(tocalculate);
             // Make Values User-Friendly
