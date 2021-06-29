@@ -37,12 +37,12 @@ console.log(require('easy-calculation').calculate('(2+2)>(4+4)', true)); // Fals
 console.log(require('easy-calculation').calculate('(2+2)<(4+4)', true)); // True
 console.log(require('easy-calculation').calculate('Infinity', true)); // Too Big to Display
 console.log(require('easy-calculation').calculate('', true)); // No Calculation Provided
-console.log(require('easy-calculation').calculate('random')); // 0.7804080476762894
-console.log(require('easy-calculation').calculate('round(pi)')); // 3
-console.log(require('easy-calculation').calculate('trunc(pi)')); // 3
-console.log(require('easy-calculation').calculate('sqrt(pi)')); // 1.7724538509055159
-console.log(require('easy-calculation').calculate('floor(random * floor(50))')); // 39
-console.log(require('easy-calculation').calculate('cbrt(pi)')); // 1.4645918875615231
+console.log(require('easy-calculation').calculate('random', true)); // 0.7804080476762894
+console.log(require('easy-calculation').calculate('round(pi)', true)); // 3
+console.log(require('easy-calculation').calculate('trunc(pi)', true)); // 3
+console.log(require('easy-calculation').calculate('sqrt(pi)', true)); // 1.7724538509055159
+console.log(require('easy-calculation').calculate('floor(random * floor(50))', true)); // 39
+console.log(require('easy-calculation').calculate('cbrt(pi)'), true); // 1.4645918875615231
 ```
 User-Friendly Mode is a Boolean argument after the Calculation argument.
 ___
