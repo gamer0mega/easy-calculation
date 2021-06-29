@@ -40,7 +40,7 @@ module.exports.howMany = function howMany(text, what) {
 }
 module.exports.calculate = function calculate(calculation, userfriendly) {
     try {
-        if (!calculation) return userfriendly ? 'No Calculation Provided' : NaN;
+        if (!calculation) return userfriendly ? 'No Calculation Provided' : null;
         // Define Variables
         calculatecheck = calculation;
         tocalculate = calculation;
@@ -54,12 +54,20 @@ module.exports.calculate = function calculate(calculation, userfriendly) {
         calculatecheck = this.replaceAll(calculatecheck, '∞', 'Infinity');
         // Remove All Signs to Check if the Calculation is valid
         calculatecheck = this.replaceAll(calculatecheck, '/', '');
+        calculatecheck = this.replaceAll(calculatecheck, ',', '');
         calculatecheck = this.replaceAll(calculatecheck, '*', '');
         calculatecheck = this.replaceAll(calculatecheck, '<', '');
         calculatecheck = this.replaceAll(calculatecheck, '>', '');
+        calculatecheck = this.replaceAll(calculatecheck, '%', '');
         calculatecheck = this.replaceAll(calculatecheck, 'pi', '');
         calculatecheck = this.replaceAll(calculatecheck, 'Pi', '');
         calculatecheck = this.replaceAll(calculatecheck, 'pI', '');
+        calculatecheck = this.replaceAll(calculatecheck, 'round', '');
+        calculatecheck = this.replaceAll(calculatecheck, 'sqrt', '');
+        calculatecheck = this.replaceAll(calculatecheck, 'random', '');
+        calculatecheck = this.replaceAll(calculatecheck, 'floor', '');
+        calculatecheck = this.replaceAll(calculatecheck, 'trunc', '');
+        calculatecheck = this.replaceAll(calculatecheck, 'cbrt', '');
         calculatecheck = this.replaceAll(calculatecheck, 'PI', '');
         calculatecheck = this.replaceAll(calculatecheck, 'π', '');
         calculatecheck = this.replaceAll(calculatecheck, '(', '');
@@ -80,6 +88,18 @@ module.exports.calculate = function calculate(calculation, userfriendly) {
             tocalculate = this.replaceAll(tocalculate, 'X', '*');
             tocalculate = this.replaceAll(tocalculate, '×', '*');
             tocalculate = this.replaceAll(tocalculate, '÷', '/');
+            tocalculate = this.replaceAll(tocalculate, 'sqrt', 'srt');
+            tocalculate = this.replaceAll(tocalculate, 'srt', 'Math.sqrt');
+            tocalculate = this.replaceAll(tocalculate, 'random', 'rndm');
+            tocalculate = this.replaceAll(tocalculate, 'rndm', 'Math.random()');
+            tocalculate = this.replaceAll(tocalculate, 'floor', 'flr');
+            tocalculate = this.replaceAll(tocalculate, 'flr', 'Math.floor');
+            tocalculate = this.replaceAll(tocalculate, 'round', 'rnd');
+            tocalculate = this.replaceAll(tocalculate, 'rnd', 'Math.round');
+            tocalculate = this.replaceAll(tocalculate, 'trunc', 'trnc');
+            tocalculate = this.replaceAll(tocalculate, 'trnc', 'Math.trunc');
+            tocalculate = this.replaceAll(tocalculate, 'cbrt', 'crt');
+            tocalculate = this.replaceAll(tocalculate, 'crt', 'Math.cbrt');
             tocalculate = this.replaceAll(tocalculate, '∞', 'Infinity');
             // Calculate Using eval
             calculateresult = eval(tocalculate);
@@ -92,10 +112,11 @@ module.exports.calculate = function calculate(calculation, userfriendly) {
         } else {
             return userfriendly ? 'Invalid Calculation' : NaN;
         }
-
-
     } catch {
         // If The Calculation is Invalid
         return userfriendly ? 'Invalid Calculation' : NaN;
     }
 }
+module.exports.version = require('./package.json').version;
+module.exports.developer = require('./package.json').author;
+module.exports.support = 'https://discord.gg/jnzkPmukuv';

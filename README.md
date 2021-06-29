@@ -18,6 +18,13 @@ console.log(require('easy-calculation').calculate('qwerty')); // NaN
 console.log(require('easy-calculation').calculate('(2+2)>(4+4)')); // false
 console.log(require('easy-calculation').calculate('(2+2)<(4+4)')); // true
 console.log(require('easy-calculation').calculate('Infinity')); // Infinity
+console.log(require('easy-calculation').calculate('')); // null
+console.log(require('easy-calculation').calculate('random')); // 0.7804080476762894
+console.log(require('easy-calculation').calculate('round(pi)')); // 3
+console.log(require('easy-calculation').calculate('trunc(pi)')); // 3
+console.log(require('easy-calculation').calculate('sqrt(pi)')); // 1.7724538509055159
+console.log(require('easy-calculation').calculate('floor(random * floor(50))')); // 39
+console.log(require('easy-calculation').calculate('cbrt(pi)')); // 1.4645918875615231
 ```
 ___
 
@@ -30,6 +37,12 @@ console.log(require('easy-calculation').calculate('(2+2)>(4+4)', true)); // Fals
 console.log(require('easy-calculation').calculate('(2+2)<(4+4)', true)); // True
 console.log(require('easy-calculation').calculate('Infinity', true)); // Too Big to Display
 console.log(require('easy-calculation').calculate('', true)); // No Calculation Provided
+console.log(require('easy-calculation').calculate('random')); // 0.7804080476762894
+console.log(require('easy-calculation').calculate('round(pi)')); // 3
+console.log(require('easy-calculation').calculate('trunc(pi)')); // 3
+console.log(require('easy-calculation').calculate('sqrt(pi)')); // 1.7724538509055159
+console.log(require('easy-calculation').calculate('floor(random * floor(50))')); // 39
+console.log(require('easy-calculation').calculate('cbrt(pi)')); // 1.4645918875615231
 ```
 User-Friendly Mode is a Boolean argument after the Calculation argument.
 ___
@@ -69,4 +82,7 @@ module.exports = {
     }
 }
 ```
+___________________
+
+Need MMore Support? Join our [Discord Server](https://discord.gg/jnzkPmukuv)!
 

@@ -1,6 +1,6 @@
 {
   "name": "easy-calculation",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "NodeJS Calculation Package",
   "main": "index.js",
   "scripts": {
