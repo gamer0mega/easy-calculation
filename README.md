@@ -84,5 +84,5 @@ module.exports = {
 ```
 ___________________
 
-Need MMore Support? Join our [Discord Server](https://discord.gg/jnzkPmukuv)!
+Need More Support? Join our [Discord Server](https://discord.gg/jnzkPmukuv)!
 

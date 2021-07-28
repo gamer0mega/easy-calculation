@@ -75,6 +75,7 @@ module.exports.calculate = function calculate(calculation, userfriendly) {
         calculatecheck = this.replaceAll(calculatecheck, '^', '');
         calculatecheck = this.replaceAll(calculatecheck, '-', '');
         calculatecheck = this.replaceAll(calculatecheck, '+', '');
+        calculatecheck = this.replaceAll(calculatecheck, ' ', '');
         // Check if The Calculation is valid
         if(!isNaN(calculatecheck)) {
             // Replace PI and Values, Add Support for more Signs
@@ -104,17 +105,17 @@ module.exports.calculate = function calculate(calculation, userfriendly) {
             // Calculate Using eval
             calculateresult = eval(tocalculate);
             // Make Values User-Friendly
-            if(isNaN(calculateresult)) calculateresult = userfriendly ? 'Invalid Calculation' : NaN;
+            if(isNaN(calculateresult)) calculateresult = userfriendly ? 'Invalid Calculation Provided!' : NaN;
             if(calculateresult === true) calculateresult = userfriendly ? 'True' : true;
             if(calculateresult === false) calculateresult = userfriendly ? 'False' : false;
             if(calculateresult === Infinity) calculateresult = userfriendly ? 'Too Big to Display' : Infinity;
             return calculateresult;
         } else {
-            return userfriendly ? 'Invalid Calculation' : NaN;
+            return userfriendly ? 'Invalid Calculation Provided!' : NaN;
         }
     } catch {
         // If The Calculation is Invalid
-        return userfriendly ? 'Invalid Calculation' : NaN;
+        return userfriendly ? 'Invalid Calculation Provided!' : NaN;
     }
 }
 module.exports.version = require('./package.json').version;
